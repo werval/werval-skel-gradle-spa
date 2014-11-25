@@ -1,0 +1,42 @@
+
+buildscript {   
+    repositories { 
+        maven { url qiwebLocalRepository }
+        maven { url "https://repo.codeartisans.org/qiweb" }
+        jcenter()
+    }
+    dependencies {
+        classpath "org.qiweb:org.qiweb.gradle:$qiwebVersion"
+        classpath 'com.moowork.gradle:gradle-gulp-plugin:0.1'
+    }
+}
+apply plugin: 'org.qiweb.application'
+apply plugin: 'com.moowork.gulp'
+
+dependencies {
+    compile qiweb.module( 'json' )
+    // Add application compile dependencies here
+
+    runtime 'ch.qos.logback:logback-classic:1.1.2'
+    // Add application runtime dependencies here
+
+    testCompile 'com.jayway.restassured:rest-assured:2.3.4'
+    // Add application test dependencies here
+}
+
+node { version = '0.10.33'; download = true }
+
+devshell.extraWatch += 'src/main/web'
+
+gulp_build.dependsOn 'installGulp', 'npmInstall'
+gulp_build.inputs.dir file( 'src/main/web' )
+gulp_build.outputs.dir file( 'build/web/' )
+sourceSets.main.output.dir( 'build/web', builtBy: 'gulp_build' )
+
+gulp_check.dependsOn 'installGulp', 'npmInstall'
+gulp_check.inputs.dir file( 'src/main/web' )
+gulp_check.outputs.dir file( 'build/reports/gulp_check' )
+check.dependsOn gulp_check
+
+// See http://www.gradle.org/documentation for build insights
+// And http://www.gradle.org/tooling for IDE support

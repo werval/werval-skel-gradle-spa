@@ -1,4 +1,4 @@
-# QiWeb Single Page Application Gradle Skeleton
+# QiWeb Single Page Application - Gradle Skeleton
 
 For the example's sake, this skeleton expose a simple JSON resource consumed
 using [jQuery](http://jquery.com/).

@@ -1,10 +1,25 @@
 # QiWeb Single Page Application Gradle Skeleton
 
-To run in development mode: `./gradlew devshell`
+For the example's sake, this skeleton expose a simple JSON resource consumed
+using [jQuery](http://jquery.com/).
+A comprehensive set of sample tests are included.
 
-To run in production mode: `./gradlew start`
+The Gradle build delegates browser application build to
+[gulp](http://gulpjs.com/) using [{less}](http://lesscss.org/) and
+[browserify](http://browserify.org/).
 
-To run tests: `./gradlew check`
+The gulp tasks (`clean`, `build` and `check`) are bound to the Gradle build to
+provide seamless integration.
+As a result, the development mode provide live-reload of both server and browser
+code.
+
+To run in development mode: `gradle devshell`
+
+To run in production mode: `gradle start`
+
+To run tests: `gradle check`
+
+To build a production distribution: `gradle distZip`
 
 The QiWeb documentation is available at http://localhost:23023/@doc in
 development mode.

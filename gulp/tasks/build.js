@@ -6,6 +6,7 @@ var source      = require( 'vinyl-source-stream' );
 var buffer      = require( 'vinyl-buffer' );
 var uglify      = require( 'gulp-uglify' );
 var sourcemaps  = require( 'gulp-sourcemaps' );
+var less        = require( 'gulp-less' );
 var path        = require( 'path' );
 var config      = require( '../config' );
 
@@ -41,4 +42,16 @@ gulp.task(
     }
 );
 
-gulp.task( 'build', [ 'index', 'browserify' ] );
+gulp.task(
+    'styles',
+    function()
+    {
+        return gulp.src( config.styles.entries )
+            .pipe( sourcemaps.init() )
+            .pipe( less( { compress: true } ) )
+            .pipe( sourcemaps.write( './' ) )
+            .pipe( gulp.dest( config.styles.dest ) );
+    }
+);
+
+gulp.task( 'build', [ 'index', 'browserify', 'styles' ] );

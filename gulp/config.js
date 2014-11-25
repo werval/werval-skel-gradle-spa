@@ -16,5 +16,10 @@ module.exports = {
     tests: {
         glob: 'src/main/web/test/**/*.js',
         reports_dir: 'build/reports/gulp_check'
+    },
+    styles: {
+        glob: 'src/main/web/styles/**/*.(less|css)',
+        entries: [ 'src/main/web/styles/main.less' ],
+        dest: 'build/web/spa/styles'
     }
 };

@@ -8,10 +8,9 @@ The Gradle build delegates browser application build to
 [gulp](http://gulpjs.com/) using [{less}](http://lesscss.org/) and
 [browserify](http://browserify.org/).
 
-The gulp tasks (`clean`, `build` and `check`) are bound to the Gradle build to
-provide seamless integration.
-As a result, the development mode provide live-reload of both server and browser
-code.
+The gulp tasks are bound to the Gradle build to provide seamless integration.
+As a result, the development mode provide live-reload of both server and
+browser code.
 
 To run in development mode: `gradle devshell`
 

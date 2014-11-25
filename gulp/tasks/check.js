@@ -11,7 +11,7 @@ gulp.task(
     'test',
     function()
     {
-        return gulp.src( [ config.sources.tests ], { read: false } )
+        return gulp.src( [ config.tests.glob ], { read: false } )
             .pipe( mocha( { reporter: 'list' } ) )
             .on( 'error', gutil.log );
     }
@@ -21,7 +21,7 @@ gulp.task(
     'lint',
     function()
     {
-        return gulp.src( [ config.sources.scripts ] )
+        return gulp.src( [ config.scripts.glob ] )
             .pipe( jshint() )
             .pipe( jshint.reporter( 'jshint-stylish' ) );
     }
@@ -37,5 +37,5 @@ gulp.task(
 
 gulp.task(
     'watch_test',
-    function() { gulp.watch( [ config.sources.scripts, config.sources.tests ], [ 'test' ] ); }
+    function() { gulp.watch( [ config.scripts.glob, config.tests.glob ], [ 'test' ] ); }
 );

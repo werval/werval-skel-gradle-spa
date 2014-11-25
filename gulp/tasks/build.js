@@ -23,19 +23,19 @@ gulp.task(
     function()
     {
         var bundler = browserify({
-            entries: config.browserify.entries,
+            entries: config.scripts.entries,
             debug: true
         });
         var bundle = function()
         {
           return bundler.bundle()
-              .pipe( source( config.browserify.bundleName ) )
+              .pipe( source( config.scripts.bundle_name ) )
               .pipe( buffer() )
               .pipe( sourcemaps.init( { loadMaps: true } ) )
                   // Add transformation tasks to the pipeline here.
                   .pipe( uglify() )
               .pipe( sourcemaps.write( './' ) )
-              .pipe( gulp.dest( config.build.scripts ) );
+              .pipe( gulp.dest( config.scripts.dest ) );
         };
         return bundle();
     }

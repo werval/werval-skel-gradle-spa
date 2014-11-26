@@ -40,7 +40,7 @@ sourceSets.main.output.dir( 'build/web', builtBy: 'gulp_build' )
 gulp_check {
     dependsOn 'installGulp', 'npmInstall'
     inputs.dir file( 'src/main/web' )
-    outputs.dir file( 'build/reports/gulp_check' )
+    outputs.dir file( 'DO_NOT_EXISTS.NEEDED_FOR_INCREMENTAL_BUILD' )
 }
 check.dependsOn gulp_check
 

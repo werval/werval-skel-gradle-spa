@@ -9,7 +9,7 @@ gulp.task(
     'clean',
     function( done )
     {
-        del( [ config.build.root, config.tests.reports_dir ], done );
+        del( [ config.build.root ], done );
     }
 );
 

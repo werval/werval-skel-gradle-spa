@@ -14,8 +14,7 @@ module.exports = {
         dest: 'build/web/spa/scripts'
     },
     tests: {
-        glob: './src/main/web/test/**/*.js',
-        reports_dir: 'build/reports/gulp_check'
+        glob: './src/main/web/test/**/*.js'
     },
     styles: {
         glob: 'src/main/web/styles/**/*.(less|css)',

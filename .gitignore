@@ -1,0 +1,13 @@
+
+build
+.gradle
+.nb-gradle
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings
+.devshell.lock
+
+node_modules/

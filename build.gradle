@@ -1,0 +1,48 @@
+
+buildscript {   
+    repositories { 
+        maven { url qiwebLocalRepository }
+        maven { url "https://repo.codeartisans.org/qiweb" }
+        jcenter()
+    }
+    dependencies {
+        classpath "org.qiweb:org.qiweb.gradle:$qiwebVersion"
+        classpath 'com.moowork.gradle:gradle-gulp-plugin:0.1'
+    }
+}
+apply plugin: 'org.qiweb.application'
+apply plugin: 'com.moowork.gulp'
+
+dependencies {
+    compile qiweb.module( 'json' )
+    // Add application compile dependencies here
+
+    runtime 'org.slf4j:slf4j-simple:1.7.7'
+    // Add application runtime dependencies here
+
+    testCompile 'com.jayway.restassured:rest-assured:2.3.4'
+    testCompile "org.fluentlenium:fluentlenium-festassert:0.10.2"
+    testCompile "org.seleniumhq.selenium:selenium-java:2.44.0"
+    // Add application test dependencies here
+}
+
+devshell.extraWatch += 'src/main/web'
+
+node { version = '0.10.33'; download = true }
+
+gulp_build {
+    dependsOn 'installGulp', 'npmInstall'
+    inputs.dir file( 'src/main/web' )
+    outputs.dir file( 'build/web/' )
+}
+sourceSets.main.output.dir( 'build/web', builtBy: 'gulp_build' )
+
+gulp_check {
+    dependsOn 'installGulp', 'npmInstall'
+    inputs.dir file( 'src/main/web' )
+    outputs.dir file( 'DO_NOT_EXISTS.NEEDED_FOR_INCREMENTAL_BUILD' )
+}
+check.dependsOn gulp_check
+
+// See http://www.gradle.org/documentation for build insights
+// And http://www.gradle.org/tooling for IDE support

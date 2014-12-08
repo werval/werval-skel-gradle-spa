@@ -1,7 +1,7 @@
 
 buildscript {   
     repositories { 
-        maven { url qiwebLocalRepository }
+        if( hasProperty( 'qiwebLocalRepository' ) ) maven { url qiwebLocalRepository }
         maven { url "https://repo.codeartisans.org/qiweb" }
         jcenter()
     }
@@ -20,7 +20,7 @@ dependencies {
     runtime 'org.slf4j:slf4j-simple:1.7.7'
     // Add application runtime dependencies here
 
-    testCompile 'com.jayway.restassured:rest-assured:2.3.4'
+    testCompile 'com.jayway.restassured:rest-assured:2.4.0'
     testCompile "org.fluentlenium:fluentlenium-festassert:0.10.2"
     testCompile "org.seleniumhq.selenium:selenium-java:2.44.0"
     // Add application test dependencies here

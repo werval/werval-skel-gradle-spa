@@ -1,10 +1,10 @@
 package controllers;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.qiweb.api.outcomes.Outcome;
+import io.werval.api.outcomes.Outcome;
 
-import static org.qiweb.api.context.CurrentContext.*;
-import static org.qiweb.modules.json.JSON.*;
+import static io.werval.api.context.CurrentContext.*;
+import static io.werval.modules.json.JSON.*;
 
 public class Application
 {

@@ -1,4 +1,4 @@
-# QiWeb Single Page Application - Gradle Skeleton
+# Werval Single Page Application - Gradle Skeleton
 
 For the example's sake, this skeleton expose a simple JSON resource consumed
 using [jQuery](http://jquery.com/).
@@ -19,5 +19,7 @@ To run tests: `gradle check`
 
 To build a production distribution: `gradle distZip`
 
-The QiWeb documentation is available at http://localhost:23023/@doc in
+To see all available tasks: `gradle tasks`
+
+The Werval documentation is available at http://localhost:23023/@doc in
 development mode.

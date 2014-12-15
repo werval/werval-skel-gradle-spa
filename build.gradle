@@ -1,8 +1,7 @@
 
 buildscript {   
     repositories { 
-        if( hasProperty( 'wervalLocalRepository' ) ) maven { url wervalLocalRepository }
-        maven { url "https://repo.codeartisans.org/werval" }
+        if( project.hasProperty( 'wervalLocalRepository' ) ) maven { url project.wervalLocalRepository }
         jcenter()
     }
     dependencies {

@@ -1,16 +1,8 @@
 
-buildscript {   
-    repositories { 
-        if( project.hasProperty( 'wervalLocalRepository' ) ) maven { url project.wervalLocalRepository }
-        jcenter()
-    }
-    dependencies {
-        classpath "io.werval:io.werval.gradle:$wervalVersion"
-        classpath 'com.moowork.gradle:gradle-gulp-plugin:0.1'
-    }
+plugins {
+    id 'io.werval.application' version '0.6.0'
+    id 'com.moowork.gulp' version '0.1'
 }
-apply plugin: 'io.werval.application'
-apply plugin: 'com.moowork.gulp'
 
 dependencies {
     compile werval.module( 'json' )
@@ -20,8 +12,7 @@ dependencies {
     // Add application runtime dependencies here
 
     testCompile 'com.jayway.restassured:rest-assured:2.4.0'
-    testCompile "org.fluentlenium:fluentlenium-festassert:0.10.2"
-    testCompile "org.seleniumhq.selenium:selenium-java:2.44.0"
+    testCompile "org.fluentlenium:fluentlenium-festassert:0.10.3"
     // Add application test dependencies here
 }
 

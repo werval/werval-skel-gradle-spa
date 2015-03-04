@@ -4,7 +4,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import io.werval.test.WervalHttpRule;
 
-import static com.jayway.restassured.RestAssured.expect;
+import static com.jayway.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.equalTo;
 
 // This test use rest-assured for HTTP/JSON assertions
@@ -18,11 +18,9 @@ public class GreetingJsonTest
     @Test
     public void greetingJsonTest()
     {
-        expect()
-            .statusCode( 200 )
-            .contentType( "application/json" )
-            .body( "message", equalTo( "Hello World!" ) )
-            .when()
-            .get( "/greeting/World" );
+        when().get( "/greeting/World" )
+            .then().statusCode( 200 )
+            .and().contentType( "application/json" )
+            .and().body( "message", equalTo( "Hello World!" ) );
     }
 }

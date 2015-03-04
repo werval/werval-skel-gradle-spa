@@ -10,7 +10,7 @@ import io.werval.test.WervalHttpRule;
 public class BrowserTest
     extends FluentTest
 {
-    // This runs your Werval Application in a Netty Server around all tests of this class
+    // This JUnit Rule runs your Werval Application in a Netty Server before all the tests below
     @ClassRule
     public static final WervalHttpRule WERVAL = new WervalHttpRule();
 
@@ -23,7 +23,7 @@ public class BrowserTest
     @Test
     public void spa()
     {
-        goTo( "http://localhost:23023/" );
+        goTo( "/" );
         await().until( "#spa" ).containsText( "Hello" );
     }
 }

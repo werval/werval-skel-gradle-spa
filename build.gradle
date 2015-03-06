@@ -1,6 +1,6 @@
 
 plugins {
-    id 'io.werval.application' version '0.7.0'
+    id 'io.werval.application' version '0.7.1'
     id 'com.moowork.gulp' version '0.1'
 }
 

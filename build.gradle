@@ -1,6 +1,6 @@
 
 plugins {
-    id 'io.werval.application' version '0.7.2'
+    id 'io.werval.application' version '0.7.3'
     id 'com.moowork.gulp' version '0.1'
 }
 
@@ -8,7 +8,7 @@ dependencies {
     compile werval.module( 'json' )
     // Add application compile dependencies here
 
-    runtime 'org.slf4j:slf4j-simple:1.7.10'
+    runtime 'org.slf4j:slf4j-simple:1.7.12'
     // Add application runtime dependencies here
 
     testCompile 'com.jayway.restassured:rest-assured:2.4.0'

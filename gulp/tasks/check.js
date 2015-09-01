@@ -9,6 +9,8 @@ var config      = require( '../config' );
 
 // By default, tests are run in phantomjs, a headless browser
 // See http://phantomjs.org/
+// You need to have it installed globally: `npm install -g phantomjs`
+//
 // Samples gulp tasks are provided to run tests in node or webdriver instead
 // That is 'test_node' and 'test_webdriver'
 

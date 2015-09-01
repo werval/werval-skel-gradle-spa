@@ -1,6 +1,6 @@
 
 plugins {
-    id 'io.werval.application' version '0.7.4'
+    id 'io.werval.application' version '0.7.5'
     id 'com.moowork.gulp' version '0.1'
 }
 
@@ -11,9 +11,9 @@ dependencies {
     runtime 'org.slf4j:slf4j-simple:1.7.12'
     // Add application runtime dependencies here
 
-    testCompile 'com.jayway.restassured:rest-assured:2.4.0'
+    testCompile 'com.jayway.restassured:rest-assured:2.5.0'
     testCompile "org.fluentlenium:fluentlenium-festassert:0.10.3"
-    testCompile 'org.seleniumhq.selenium:selenium-java:2.45.0'
+    testCompile 'org.seleniumhq.selenium:selenium-java:2.47.1'
     // Add application test dependencies here
 }
 
